@@ -1,6 +1,6 @@
 # BitCoin_AutoTrade
 
-##Ubuntu 서버 명령어
+## Ubuntu 서버 명령어
 
 - (*추가)한국 기준으로 서버 시간 설정: sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
 - 현재 경로 상세 출력: ls -al
