@@ -3,18 +3,17 @@ import pyupbit
 import datetime
 import requests
 
-access = "Access key"
-secret = "Secret key"
-myToken = "myToken "
+access = "access_key"
+secret = "secret_key"
+myToken = "myToken"
 
-
-def post_message(token, channel, text):
-    """슬랙 메시지 전송"""
-    response = requests.post("https://slack.com/api/chat.postMessage",
-                             headers={"Authorization": "Bearer "+token},
-                             data={"channel": channel, "text": text}
-                             )
-    print(response)
+# def post_message(token, channel, text):
+#     """슬랙 메시지 전송"""
+#     response = requests.post("https://slack.com/api/chat.postMessage",
+#                              headers={"Authorization": "Bearer "+token},
+#                              data={"channel": channel, "text": text}
+#                              )
+#     print(response)
 
 
 def get_start_time(ticker):
@@ -46,7 +45,7 @@ upbit = pyupbit.Upbit(access, secret)
 print("autotrade start")
 
 # 시작 메세지 슬랙 전송
-post_message(myToken, "#coin", "autotrade start")
+# post_message(myToken, "#coin", "autotrade start")
 
 while True:
     try:
@@ -62,14 +61,12 @@ while True:
                 krw = upbit.get_balance("KRW")
                 if krw > 5000:
                     buy_result = upbit.buy_market_order("KRW-DOGE", krw*0.9995)
-                    post_message(myToken, "#coin",
-                                 "DOGE Buy : "+str(buy_result))
+                    # post_message(myToken, "#coin", "DOGE Buy : "+str(buy_result))
             elif target_sell_price < current_price:
                 doge = upbit.get_balance("KRW-DOGE")
-                if doge > 3000:
-                    sell_result = upbit.sell_market_order("KRW-DOGE", 450)
-                    post_message(myToken, "#coin",
-                                 "DOGE Sell : " + str(sell_result))
+                if doge > 2000:
+                    sell_result = upbit.sell_market_order("KRW-DOGE", 500)
+                    # post_message(myToken, "#coin", "DOGE Sell : " + str(sell_result))
                 else:
                     pass
             else:
@@ -77,5 +74,5 @@ while True:
         time.sleep(1)
     except Exception as e:
         print(e)
-        post_message(myToken, "#crypto", e)
+        # post_message(myToken, "#crypto", e)
         time.sleep(1)
