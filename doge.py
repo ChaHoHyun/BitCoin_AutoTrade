@@ -5,7 +5,7 @@ import requests
 
 access = "access_key"
 secret = "secret_key"
-myToken = "myToken"
+# myToken = "myToken"
 
 # def post_message(token, channel, text):
 #     """슬랙 메시지 전송"""
