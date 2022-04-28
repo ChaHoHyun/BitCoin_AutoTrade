@@ -56,7 +56,7 @@ while True:
         end_time = start_time + datetime.timedelta(days=1)
         alarm_time = start_time + datetime.timedelta(hours=3)
 
-        if start_time + datetime.timedelta(hours=3) < now < start_time + datetime.timedelta(hours=3)+ datetime.timedelta(seconds=3): #alarm_time
+        if  alarm_time < now < alarm_time + datetime.timedelta(seconds=3):
             execute(myToken)
         else:
             pass
