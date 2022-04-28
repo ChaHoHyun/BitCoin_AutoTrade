@@ -28,5 +28,4 @@ def test_function(myToken):
 
 # 실행하기
 def execute(myToken):
-    post_message(myToken, "#flex", "start!")
     test_function(myToken)

@@ -3,7 +3,7 @@ import pyupbit
 import datetime
 import requests
 import math
-import indexalarm
+from indexalarm import execute
 
 access = "access_key"
 secret = "secret_key"
@@ -56,7 +56,7 @@ while True:
         end_time = start_time + datetime.timedelta(days=1)
         alarm_time = start_time + datetime.timedelta(hours=3)
 
-        if now == alarm_time:
+        if start_time + datetime.timedelta(hours=15) + datetime.timedelta(minutes=4) < now < start_time + datetime.timedelta(hours=15)+ datetime.timedelta(minutes=4)+ datetime.timedelta(seconds=3): #alarm_time
             execute(myToken)
         else:
             pass
